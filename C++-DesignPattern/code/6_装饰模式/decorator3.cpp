@@ -1,7 +1,7 @@
 //业务操作
 class Stream{
 
-public：
+public:
     virtual char Read(int number)=0;
     virtual void Seek(int position)=0;
     virtual void Write(char data)=0;
@@ -54,7 +54,7 @@ public:
 
 //扩展操作
 
-DecoratorStream: public Stream{
+class DecoratorStream: public Stream{ //装饰类， 既继承了Stream ，又包含了Stream
 protected:
     Stream* stream;//...
     
