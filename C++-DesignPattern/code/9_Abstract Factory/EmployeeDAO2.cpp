@@ -1,4 +1,4 @@
-
+//采用了工厂方法，但是有弊端
 //数据库访问有关的基类
 class IDBConnection{
     
@@ -67,9 +67,9 @@ class OracleDataReader: public IDataReader{
 
 
 class EmployeeDAO{
-    IDBConnectionFactory* dbConnectionFactory;
-    IDBCommandFactory* dbCommandFactory;
-    IDataReaderFactory* dataReaderFactory;
+    IDBConnectionFactory* dbConnectionFactory; //这个类就要求用户传递的三个指针是要对应的，不能是 sqldb 的 和oracldb组合
+    IDBCommandFactory* dbCommandFactory;       //要求用户保证，不好
+    IDataReaderFactory* dataReaderFactory;     //这些是相互依赖的
     
     
 public:
